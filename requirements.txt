@@ -1,0 +1,14 @@
+accelerate==0.22.0
+transformers==4.31.0
+evaluate
+appdirs
+bitsandbytes
+black
+black[jupyter]
+datasets
+fire
+sentencepiece
+gradio
+scipy
+scikit-learn
+wandb
