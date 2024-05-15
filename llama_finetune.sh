@@ -47,6 +47,3 @@ run 'base' 64 1
 
 # run MELoRA with rank 1, num 8
 run 'melora' 1 8
-
-# run AdaLoRA with rank 64
-run 'adalora' 64 1

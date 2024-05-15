@@ -205,23 +205,7 @@ def train(
             mode=mode,
             task_type="CAUSAL_LM",
         )
-            
-    elif mode == "ada":
-        print(f"Using adalora, lora_r :{lora_r}")
-        config = AdaLoraConfig(
-            init_r=lora_r+4,
-            target_r=lora_r,
-            beta1=0.85,
-            beta2=0.85,
-            tinit=100,
-            tfinal=100,
-            deltaT=10,
-            lora_alpha=lora_alpha,
-            lora_dropout=lora_dropout,
-            target_modules=lora_target_modules,
-            orth_reg_weight=0.5,
-            task_type="CAUSAL_LM",
-        )
+        
     model = get_peft_model(model, config)
 
     if data_path.endswith(".json") or data_path.endswith(".jsonl"):

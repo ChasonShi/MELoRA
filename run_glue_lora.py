@@ -404,22 +404,6 @@ def main():
             bias=model_args.lora_bias,
             task_type=model_args.lora_task_type,
         )
-    elif model_args.mode == 'ada':
-        print("*** Ada Lora !!! ***")
-        peft_config = AdaLoraConfig(
-            init_r=model_args.rank[0]*2,
-            target_r=model_args.rank[0],
-            beta1=0.85,
-            beta2=0.85,
-            tinit=1000,
-            tfinal=2000,
-            deltaT=10,
-            lora_alpha=model_args.lora_alpha[0],
-            target_modules=model_args.target_modules,
-            lora_dropout=model_args.lora_dropout,
-            orth_reg_weight=0.5,
-            task_type=model_args.lora_task_type,
-        )
     else:
         raise ValueError(f"Unknown mode {model_args.mode}")
     # PEFT
@@ -513,8 +497,8 @@ def main():
     elif data_args.task_name is not None and not is_regression:
         model.config.label2id = {l: i for i, l in enumerate(label_list)}
         model.config.id2label = {id: label for label, id in config.label2id.items()}
-    print("*** label and id ***")
-    print(model.config.label2id)
+    # print("*** label and id ***")
+    # print(model.config.label2id)
     if data_args.max_seq_length > tokenizer.model_max_length:
         logger.warning(
             f"The max_seq_length passed ({data_args.max_seq_length}) is larger than the maximum length for the"

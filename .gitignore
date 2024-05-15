@@ -1,0 +1,11 @@
+__pycache__
+.idea/*
+/peft-0.5.0/examples
+/peft-0.5.0/docs
+/peft-0.5.0/.*
+/peft-0.5.0/src/peft/__pycache__
+/peft-0.5.0/src/peft.egg-info
+/lora*
+/data
+/llama-lora
+/wandb
